@@ -90,15 +90,18 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 >
 >            git checkout -b NewBranchName
 >
->    2. Remote Repository에 branch를 push 한다
+>    2. Remote Repository에 적절히 commit을 한 뒤
+>
+>           git checkout NewBranchName
+>           git commit
+>
+>    3. branch를 push 한다
 >
 >            git push --set-upstream origin NewBranchName
 >
->    3. 이후, 일반적인 push를 하고,
+>    4. 웹사이트에 접속하여 pull request를 생성한다.(Github Desktop에서 create pull request(Ctrl + R)을 해도 웹페이지가 뜬다.)
 >
->            git push origin NewBranchName
->
->    4. 웹사이트에 접속하여 pull request를 생성한다.
+>    5. 웹사이트에서 Merge를 진행한 뒤, 원격지에서 branch가 삭제되면, local에서도 해당 branch를 삭제한다.(이부분은 확인 필요)
 >
 ><br>
 
@@ -106,7 +109,7 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 
 ><br>
 >
->+ 원격지에서 먼저 Branch를 생성할 경우
+>+ 원격지에서 먼저 Branch를 생성할 경우(보통은 이러지 않는다.)
 >
 >    1. 원격지에서 branch를 생성한다.(웹에서)
 >    2. 원격지 branch를 확인한 뒤(-r은 원격지 branch만, -a는 원격지/로컬 모든 branch)
@@ -121,7 +124,9 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 >
 >            git push origin NewBranchName
 >
->    5. 웹사이트에서 접속하여 pull request를 생성한다.
+>    5. 웹사이트에서 접속하여 pull request를 생성한다.(Github Desktop에서 create pull request(Ctrl + R)을 해도 웹페이지가 뜬다.)
+>
+>    6. 웹사이트에서 Merge를 진행한 뒤, 원격지에서 branch가 삭제되면, local에서도 해당 branch를 삭제한다.
 >
 ><br>
 
