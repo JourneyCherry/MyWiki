@@ -2,9 +2,9 @@ Git Wiki
 =============
 
 목차   
-[1. Visual Studio Code에서 Github와 연동하는 법](#1.-visual-studio-code에서-github와-연동하는-법)   
-[2. Unity에서 Github와 연동하는 법](#2.-unity에서-github와-연동하는-법)   
-[3. .gitignore 적용하기](#3.-.gitignore-적용하기)   
+[1. Visual Studio Code에서 Github와 연동하는 법](#1-visual-studio-code에서-github와-연동하는-법)   
+[2. Unity에서 Github와 연동하는 법](#2-unity에서-github와-연동하는-법)   
+[3. .gitignore 적용하기](#3-.gitignore-적용하기)   
 
 ### 1. Visual Studio Code에서 Github와 연동하는 법
 
@@ -29,7 +29,7 @@ Git Wiki
 ### 2. Unity에서 Github와 연동하는 법
 
 1. Github Desktop(https://desktop.github.com/) 설치 후, 로컬 repository 생성(open local repository -> create new local repository메뉴 누르기)
-2. 자동 commit 되어 있으므로 git bash 열어서 해당 디렉토리로 간 뒤, 다음 명령어 입력([위](#1.-visual-studio-code에서-github와-연동하는-법)와 같다.)
+2. 자동 commit 되어 있으므로 git bash 열어서 해당 디렉토리로 간 뒤, 다음 명령어 입력([위](#1-visual-studio-code에서-github와-연동하는-법)와 같다.)
 >    
     git remote add origin ...
     git pull origin master --allow-unrelated-histories
