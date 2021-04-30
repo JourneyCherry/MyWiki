@@ -11,7 +11,7 @@ Git Wiki
 [1. Visual Studio Code에서 Github와 연동하는 법](#1-visual-studio-code에서-github와-연동하는-법)   
 [2. Unity에서 Github와 연동하는 법](#2-unity에서-github와-연동하는-법)   
 [3. .gitignore 적용하기](#3-gitignore-적용하기)   
-[4. 자동으로 Issue Closing 시키기]($4-자동으로-issue-closing-시키기)   
+[4. 자동으로 Issue Closing 시키기](#4-자동으로-issue-closing-시키기)   
 
 <br><br>
 - - -
