@@ -7,11 +7,12 @@ Git Wiki
 
 <br>
 
-목차   
+## 목차   
 [1. Visual Studio Code에서 Github와 연동하는 법](#1-visual-studio-code에서-github와-연동하는-법)   
 [2. Unity에서 Github와 연동하는 법](#2-unity에서-github와-연동하는-법)   
 [3. .gitignore 적용하기](#3-gitignore-적용하기)   
-[4. 자동으로 Issue Closing 시키기]($4-자동으로-issue-closing-시키기)   
+[4. 자동으로 Issue Closing 시키기](#4-자동으로-issue-closing-시키기)   
+[5. GPG를 통한 Commit 서명](#5-gpg를-통한-commit-서명)
 
 <br><br>
 - - -
@@ -155,3 +156,98 @@ Merge를 할 때, 자동으로 해당 Issue를 Closing을 한다.
 
 <br><br>
 * * *
+
+### 5. GPG를 통한 Commit 서명
+
+Github에서 commit 창의 옆을 보면 <span style="color:grey">**Unverified**</span>(설정에 따라 안보일 수 있음)/<span style="color:green">**Verified**</span>으로 표시가 되어있는 것을 볼 수 있는데,<br>이것은 인증된 서명이 붙은 commit인지 아닌지를 나타낸다.<br>
+서명을 제대로 해보자.
+
+<br>
+
+> **참고** : GPG란?<br>
+><!----여기 처리할 방법을 생각해보자. 탭이 안먹힘---------->
+>       GPG(GNU Privacy Guard): 1991년 Philip R. Zimmermann이 
+>                               PGP(Pretty Good Privacy)라는 전자 우편 암호화 도구를 기반으로 만든 소프트웨어.
+>                               다양한 암호를 지원한다.
+>
+<br>
+
+1. Git bash에서 gpg 키를 생성하자.
+
+        $ gpg --full-generate-key
+
+    해당 명령은 다음과 같은 항목을 입력 받는다.
+
+    > key의 종류 : RSA and RSA(default)
+    >
+    > key size : 4096
+    >
+    > 유효기간 : 기본값은 0(유효기간 없음)
+    >
+    > 키 식별정보 : 이름, 이메일(Github에 등록된 이메일), 코멘트(공란 가능)
+    >
+    > 키 비밀번호 : 알아서 입력
+
+<br>
+
+2. gpg 키를 확인하자.
+
+        $ gpg --list-secret-keys --keyid-format LONG
+
+    >결과값
+    >
+    >       sec rsa4096/AAAAAA 20xx-xx-xx [SC]
+    >           BBBBBBBBBBBBB
+    >       uid     [ultimate] Name(Comment)<your_email@mail.addr>
+    >       ssb rsa4096/CCCCCC 20xx-xx-xx [E]
+    >
+    >이 중에서 key id는 AAAAAA다.
+
+<br>
+
+3. 키를 ascii 형태로 변환하고,
+
+        $ gpg --armor --export AAAAAA
+
+    >
+    >       -----BEGIN PGP PUBLIC KEY BLOCK-----
+    >       
+    >       ...
+    >
+    >       -----END PGP PUBLIC KEY BLOCK-----
+    >
+
+<br>
+
+4. 키를 복사한다.
+
+    > 콘솔창을 복/붙해도 되지만, ascii로 변환할 때, clip 명령을 같이 쓰면 알아서 복사해준다.
+    >
+    >       $gpg --armor --export AAAAAA | clip
+    >
+
+<br>
+
+5. Github에 등록을 하고
+
+        Github.com 접속 -> 우측 상단 Settings -> 왼쪽 메뉴 SSH and GPG keys -> New GPG Key -> 붙여넣기 -> 등록
+
+    > 붙여넣기 할 때, 반드시 -----BEGIN PGP PUBLIC KEY BLOCK-----과 -----END PGP PUBLIC KEY BLOCK-----을 포함하여야 한다.
+
+<br>
+
+6. git이 커밋에 서명하도록 설정하고
+
+        $ git config --global commit.gpgsign true
+
+<br>
+
+7. commit 서명에 사용할 키 ID를 지정한다. ('2.'번 과정에서 확인한 key id를 입력하면 된다.)
+
+        $ gpg config --global user.signingkey AAAAAA
+
+<br>
+
+8. 기타 git 관리 프로그램에서도 사용할 수 있도록 gpg 확인 프로그램을 등록한다.
+
+        $ gpg config --global gpg.program $(which gpg)
