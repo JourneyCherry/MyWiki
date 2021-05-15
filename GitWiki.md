@@ -125,7 +125,7 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 >    3. 원격지 branch를 로컬에 생성한다.
 >
 >            git checkout -t origin/NewBrandName
->       <h6>* 해당 명령을 입력하면 자동적으로 NewBranchName이라는 Branch를 생성해준다.<br>-t는 track을 의미한다.</h6>
+>       <h6>* 해당 명령을 입력하면 자동적으로 NewBranchName이라는 Branch를 생성해준다.<br>** -t는 track을 의미한다.</h6>
 >
 >    4. 이후, 일반적인 push를 하고,
 >
@@ -141,8 +141,6 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 
 Branch 內의 commit message나 pull request의 description에 해당 Issue(#~~~)가 종료 관련 키워드와 함께 포함되어 있으면<br>
 Merge를 할 때, 자동으로 해당 Issue를 Closing을 한다.
-
-<br>
 
 ><br>
 >
@@ -165,7 +163,7 @@ Merge를 할 때, 자동으로 해당 Issue를 Closing을 한다.
 
 ### 5. GPG를 통한 Commit 서명
 
-Github에서 commit 창의 옆을 보면 <span style="color:grey">**Unverified**</span>(설정에 따라 안보일 수 있음)/<span style="color:green">**Verified**</span>으로 표시가 되어있는 것을 볼 수 있는데,<br>이것은 인증된 서명이 붙은 commit인지 아닌지를 나타낸다.<br>
+Github에서 commit 창의 옆을 보면 **Unverified**(설정에 따라 안보일 수 있음, 회색)/**Verified**(초록색)으로 표시가 되어있는 것을 볼 수 있는데,<br>이것은 인증된 서명이 붙은 commit인지 아닌지를 나타낸다.<br>
 서명을 제대로 해보자.
 
 <br>
