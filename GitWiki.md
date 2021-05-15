@@ -106,7 +106,8 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 >
 >    4. 웹사이트에 접속하여 pull request를 생성한다.(Github Desktop에서 create pull request(Ctrl + R)을 해도 웹페이지가 뜬다.)
 >
->    5. 웹사이트에서 Merge를 진행한 뒤, 원격지에서 branch가 삭제되면, local에서도 해당 branch를 삭제한다.(이부분은 확인 필요)
+>    5. 웹사이트에서 Merge를 진행한 뒤, 원격지에서 branch가 삭제되면, local에서도 해당 branch를 삭제한다.
+>       <h6>* 참고로 Forked Repository -> Original Repository로 PR(Pull Request)를 할 경우, Github에서 자동적으로 Forked Repository의 Branch를 제거해준다.</h6>
 >
 ><br>
 
@@ -121,9 +122,10 @@ Github에서는 Branch Merge 시, Description에 Issue를 특정 단어와 함�
 >            
 >            git branch -r
 >
->    3. 원격지 branch를 생성한다.(로컬에도 생성되는지는 확인 필요)
+>    3. 원격지 branch를 로컬에 생성한다.
 >
 >            git checkout -t origin/NewBrandName
+>       <h6>* 해당 명령을 입력하면 자동적으로 NewBranchName이라는 Branch를 생성해준다.<br>-t는 track을 의미한다.</h6>
 >
 >    4. 이후, 일반적인 push를 하고,
 >
