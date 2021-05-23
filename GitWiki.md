@@ -11,12 +11,13 @@ Git Wiki
 
 <br>
 
-## 목차   
-[1. Visual Studio Code에서 Github와 연동하는 법](#1-visual-studio-code에서-github와-연동하는-법)   
-[2. Unity에서 Github와 연동하는 법](#2-unity에서-github와-연동하는-법)   
-[3. .gitignore 적용하기](#3-gitignore-적용하기)   
-[4. 자동으로 Issue Closing 시키기](#4-자동으로-issue-closing-시키기)   
-[5. GPG를 통한 Commit 서명](#5-gpg를-통한-commit-서명)
+## 목차
+[1. Visual Studio Code에서 Github와 연동하는 법](#1-visual-studio-code에서-github와-연동하는-법)<br>
+[2. Unity에서 Github와 연동하는 법](#2-unity에서-github와-연동하는-법)<br>
+[3. .gitignore 적용하기](#3-gitignore-적용하기)<br>
+[4. 자동으로 Issue Closing 시키기](#4-자동으로-issue-closing-시키기)<br>
+[5. GPG를 통한 Commit 서명](#5-gpg를-통한-commit-서명)<br>
+[6. 코드 병합 방법](#6-코드-병합-방법)<br>
 
 <br><br>
 - - -
@@ -255,3 +256,70 @@ Github에서 commit 창의 옆을 보면 **Unverified**(설정에 따라 안보�
 8. 기타 git 관리 프로그램에서도 사용할 수 있도록 gpg 확인 프로그램을 등록한다.
 
         $ gpg config --global gpg.program $(which gpg)
+
+
+<br><br>
+* * *
+### 6. 코드 병합 방법
+
+코드 병합엔 다음 두가지 방법이 있다.
+1. git merge BranchName
+
+    현재 Branch와 BranchName을 병합한다.
+
+        git checkout SrcBranch
+        git merge TargetBranch
+
+    위와 같이 명령을 입력하면 SrcBranch에 merge commit이 생성되며,<br>
+    생성된 Commit의 부모는 SrcBranch, TargetBranch이고, 해당 Commit에 SrcBranch의 Head가 온다.<br>
+
+    merge를 할 경우, branch 흔적이 따로 남아 
+
+        git branch -d TargetBranch
+    
+    위 명령어로 TargetBranch를 삭제해도 해당 Branch의 내역은 그대로 남게 된다.<br>
+    단, SrcBranch에만 추가적인 Commit이 있고 SrcBranch가 TargetBranch로부터 나온 시점에서 TargetBranch에 변경점이 없다면<br>
+    다음 명령어를 입력 시, Fast-Forward되어 SrcBranch와 TargetBranch가 같은 Merge된 Commit을 가리키게 된다.
+
+        git checkout TargetBranch
+        git merge SrcBranch
+
+<br>
+
+2. git rebase BranchName
+
+    현재 Branch와 BranchName을 병합하되, 기존 Branch의 흔적을 덧씌운다.
+
+        git checkout SrcBranch
+        git merge TargetBranch
+
+    위 명령을 입력하면 서로 갈라져나온 부모 Commit부터 SrcBranch까지의 모든 Commit을 TargetBranch의 끝에 붙이게 된다.<br>
+    즉, SrcBranch의 시초가 TargetBranch 였던 것 처럼 보여지게 되며, Tree가 깔끔해지게 된다.
+
+<br>
+
+3. git squash BranchName (GitHub 한정)
+
+    BranchName에 있는 모든 Commit을 하나로 합친 뒤, 현재 Branch 뒤에 붙이는 방법.
+    원래 Git엔 git squash란 명령어는 없고 동일한 효과를 보려면 다음과 같이 interactive rebase를 써야 한다.
+
+        git checkout SrcBranch
+        git rebase -i TargetBranch~1
+
+    또는 다음과 같이 cherry pick을 써도 된다.
+
+        git checkout SrcBranch
+        git cherry-pick TargetBranch
+
+    squash를 쓰면 불필요한 Commit(디버그용 commit 같은 것들)을 안보이게 할 수 있어 rebase보다 더 깔끔하게 만들 수 있다.
+
+<br>
+
+결론적으로, 병합을 할 때, checkout된 Branch의 Head가 최종 Commit으로 가게 된다.<br>
+merge를 쓸지, rebase를 쓸지, squash를 쓸지는 프로젝트 참가자들의 선택에 달렸다.<br>
+
+<br>
+
+출처
+* merge and rebase : https://cyberx.tistory.com/96
+* squash : https://meetup.toast.com/posts/122
