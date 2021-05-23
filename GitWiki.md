@@ -22,7 +22,7 @@ Git Wiki
 <br><br>
 - - -
 
-### 1. Visual Studio Code에서 Github와 연동하는 법
+### [1.](#목차) Visual Studio Code에서 Github와 연동하는 법
 
 1. 깃(https://www.git-scm.com/downloads) 설치 후, 로컬 repository 생성
 2. CHANGES 항목에 있는 내용 Commit(Changes항목에서 + 아이콘 클릭하여 Staged Changes에 추가 후,   
@@ -44,7 +44,7 @@ Git Wiki
 <br><br>
 * * *
 
-### 2. Unity에서 Github와 연동하는 법
+### [2.](#목차) Unity에서 Github와 연동하는 법
 
 1. Github Desktop(https://desktop.github.com/) 설치 후, 로컬 repository 생성(open local repository -> create new local repository메뉴 누르기)
 2. 자동 commit 되어 있으므로 git bash 열어서 해당 디렉토리로 간 뒤, 다음 명령어 입력([위](#1-visual-studio-code에서-github와-연동하는-법)와 같다.)
@@ -57,7 +57,7 @@ Git Wiki
 >
     참고 : 이 이후로 기타 repository는 Github Desktop으로 관리하는게 좋다.(Visual Studio는 자체 repo 관리 기능이 있으니 제외)
 
-### 3. .gitignore 적용하기
+### [3.](#목차) .gitignore 적용하기
 <h6> 이미 Commit 된 파일을 .gitignore에 추가하였으나 적용되지 않을 경우 사용.</h6>
 
 1. .gitignore 파일에 적용할 파일 작성
@@ -75,7 +75,7 @@ Git Wiki
 <br><br>
 * * *
 
-### 4. 자동으로 Issue Closing 시키기
+### [4.](#목차) 자동으로 Issue Closing 시키기
 
 <br>
 
@@ -162,7 +162,7 @@ Merge를 할 때, 자동으로 해당 Issue를 Closing을 한다.
 <br><br>
 * * *
 
-### 5. GPG를 통한 Commit 서명
+### [5.](#목차) GPG를 통한 Commit 서명
 
 Github에서 commit 창의 옆을 보면 **Unverified**(설정에 따라 안보일 수 있음, 회색)/**Verified**(초록색)으로 표시가 되어있는 것을 볼 수 있는데,<br>이것은 인증된 서명이 붙은 commit인지 아닌지를 나타낸다.<br>
 서명을 제대로 해보자.
@@ -260,7 +260,8 @@ Github에서 commit 창의 옆을 보면 **Unverified**(설정에 따라 안보�
 
 <br><br>
 * * *
-### 6. 코드 병합 방법
+
+### [6.](#목차) 코드 병합 방법
 
 코드 병합엔 다음 두가지 방법이 있다.
 1. git merge BranchName

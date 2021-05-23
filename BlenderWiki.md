@@ -5,13 +5,13 @@
 Blender Wiki
 =============
 
-목차
+## 목차
 [1. Unity로 Export시 유의점](#1-unity로-export시-유의점)
 
 <br><br>
 
 * * *
-### 1. Unity로 Export시 유의점
+### [1.](#목차) Unity로 Export시 유의점
 
 Blender와 Unity의 좌표계가 다르기 때문에 이를 고려해야 한다.
 * Blender는 Z축이 위아래
