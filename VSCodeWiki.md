@@ -5,11 +5,12 @@
 Visual Studio Code Wiki
 =============
 
-목차
+## 목차
+
 [1. Visual Studio Code에서 Markdown 언어 쓰는 법](#1-visual-studio-code에서-markdown-언어-쓰는-법)
 
 * * *
-### 1. Visual Studio Code에서 Markdown 언어 쓰는 법
+### [1.](#목차) Visual Studio Code에서 Markdown 언어 쓰는 법
 <br>
 <h6>참고 : markdown(*.md)파일은 자동으로 code lint가 적용된다.</h6>
 <br>
