@@ -158,6 +158,11 @@ Merge를 할 때, 자동으로 해당 Issue를 Closing을 한다.
 >        resolved
 >  
 ><br>
+<br>
+
+> * 참고<br>
+>   Commit에만 Issue를 언급하고 Pull Request의 Description에서 Issue를 키워드와 함께 언급하지 않으면,<br>
+>   PR의 ```Linked Issue```탭에 해당 Issue가 링크 되지 않는다.
 
 <br><br>
 * * *
