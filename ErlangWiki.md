@@ -7,8 +7,8 @@
 
 ## 목차
 
-[1. OTP 사용 시 주의점](#1. OTP 사용 시 주의점)<br>
-  [1. OTP 내에서 다른 Application 중단 시키기](#OTP 내에서 다른 Application 중단 시키기)<br>
+[1. OTP 사용 시 주의점](#1-otp-사용-시-주의점)<br>
+  [1. OTP 내에서 다른 Application 중단 시키기](#1-otp-내에서-다른-application-중단-시키기)<br>
   
 
 * * *
